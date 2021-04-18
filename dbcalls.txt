@@ -1,0 +1,249 @@
+API CALLS:
+
+POST CALLS
+
+user Login
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/user-login
+ 
+{
+  email:"xx",
+  phone:"xx",
+  password:"xxx"
+}
+
+user signup
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/user-signup
+{
+    "user_name":"xx",
+    "email":"xxx",
+    "phone":"xxx",
+    "password":"xxx",
+    "device_id":"xxx"
+}
+
+user exist:
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/user-exist
+{
+  phone:"xxx"
+}
+
+forget password:
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/forget-password
+{
+  phone:"xxx",
+  email:"xxx", 
+  password:"xxx"
+}
+
+info@spontom.com
+P@1Harsha
+
+GET CALLS
+
+Get ALL RESTAURANTS:
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/getrestaurants
+
+GET USER DESTIALS
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/users/:id
+
+GET ALL FOOD OPTIONS
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/foodoptions
+
+
+FOOD CALLS
+
+POST CALL 
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/invoke/food
+{
+    "restaurant_id":1,
+    "food_name":"Roti",
+    "price":"40",
+    "food_type":"veg",
+    "category_id":7,
+    "featured_item":"N0",
+    "varient_status":"No",
+    "available_status":"Yes",
+    "cuisine_id":6,
+    "created_date":"2020-12-19T12:07:30.126Z"
+}
+
+GET CALL ALL FOODS
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/foods
+
+GET CALL FOOD DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/food/:id
+
+POST CALL UPDATE FOOD DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/update/food/:id
+{
+    "restaurant_id":1,
+    "food_name":"Roti",
+    "price":"40",
+    "food_type":"veg",
+    "category_id":7,
+    "featured_item":"N0",
+    "varient_status":"No",
+    "available_status":"Yes",
+    "cuisine_id":6
+}
+
+RESTAURANTS CALLS
+
+POST CALL INSERT RESTAURANT 
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/invoke/restaurant
+{
+    "user_id":1,
+    "restaurant_name":"Roti",
+    "restaurant_description":"40",
+    "restaurant_address":"veg",
+    "location":7,
+    "phone":"N0",
+    "closed":"No",
+    "active_status":"Yes",
+    "available_for_delivery":6,
+    "join_date":"2020-12-19T12:07:30.126Z"
+}
+
+GET CALL ALL RESTAURANTS
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/restaurant
+
+GET CALL RESTAURANT DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/restaurant/:id
+
+POST CALL UPDATE RESTAURANT DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/update/restaurant/:id
+{
+    "user_id":1,
+    "restaurant_name":"Roti",
+    "restaurant_description":"40",
+    "restaurant_address":"veg",
+    "location":7,
+    "phone":"N0",
+    "closed":"No",
+    "active_status":"Yes",
+    "available_for_delivery":6
+}
+
+
+CUISINES CALLS
+
+POST CALL INSERT CUISINE DATA
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/invoke/cuisine
+{
+	"cuisine_name":"",
+	"cuisine_description":"",
+}
+
+GET CALL ALL CUISINES DATA
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/cuisines
+
+GET CALL CUISINE DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/cuisine/:id
+
+POST CALL UPDATE CUISINE DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/update/cuisine/:id
+{
+	"cuisine_name":"",
+	"cuisine_description":""
+}
+
+CATEGORIES CALLS
+
+POST CALL INSERT CATEGORIES DATA
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/invoke/category
+{
+	"category_name":"",
+	"cat_description":""
+}
+
+GET CALL ALL CATEGORIES
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/category
+
+GET CALL CATEGORIES DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/category/:id
+
+POST CALL UPDATE CATEGORIES DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/update/category/:id
+{
+	"category_name":"",
+	"cat_description":""
+}
+
+
+NUTRITION CALLS
+
+POST CALL INSERT NUTRITION DATA
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/invoke/nutrition
+{
+	"nutrition_name":"",
+	"quantity":"",
+	"unit":""
+}
+
+GET CALL ALL NUTRITIONS
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/nutrition
+
+GET CALL NUTRITION DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/nutrition/:id
+{
+	"id":id,
+	"nutrition_name":"",
+	"quantity":"",
+	"unit":""
+}
+
+
+ADDRESS COLLECTION
+
+POST CALL INSERT ADDRESS COLLECTIONS
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/invoke/add-address
+{
+	"appuser_id":"",
+	"latitude":"",
+	"longitude":"",
+	"address":""
+}
+
+GET CALL ADDRESS COLLECTION DATA BASED ON APPUSER ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/getaddresses/:appuser_id
+
+POST CALL UPDATE ADDRESS COLLECTION DATA 
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/invoke/add-address
+{
+	"id":0,
+	"appuser_id":"",
+	"latitude":"",
+	"longitude":"",
+	"address":""
+}
+
+COUPONS CALLS
+
+POST CALLS
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/invoke/coupons
+{
+	"coupon_code":"",
+	"discount":"",
+	"expire_date":"",
+	"created_date":"",
+	"active_status":""
+}
+
+GET CALL ALL COUPONS
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/coupons
+
+GET CALL COUPON DATA BASED ON ID
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/coupons/:coupon_id
+
+POST CALLS
+http://ec2-18-220-104-212.us-east-2.compute.amazonaws.com:3000/api/update/coupons
+{
+	"id":0,
+	"coupon_code":"",
+	"discount":"",
+	"expire_date":"",
+	"created_date":"",
+	"active_status":"",
+	"update_date":""
+}
+

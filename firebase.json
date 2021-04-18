@@ -1,0 +1,19 @@
+{
+    "hosting": [
+      {
+        "target": "thaamboolam",
+        "public": "dist/thaamboolam",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    ]
+  }
