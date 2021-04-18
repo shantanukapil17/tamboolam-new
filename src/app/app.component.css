@@ -1,0 +1,15 @@
+td, th{
+    text-align: center !important;
+}
+
+input{
+    height: 2.8 !important;
+}
+ 
+input.ng-invalid.ng-touched{
+	border: 1px solid red !important; 
+}
+
+textarea.ng-invalid.ng-touched{
+border: 1px solid red !important;
+}

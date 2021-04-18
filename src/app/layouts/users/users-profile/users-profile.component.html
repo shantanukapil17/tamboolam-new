@@ -1,0 +1,81 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">User Profile</h4>
+                        <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="card-body">
+                        <form  #f='ngForm'> 
+                         
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <label>First Name</label>
+                                        <div class="form-control" id='name'></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label>Email Address</label>
+                                        <div class="form-control" id='email'></div>
+                                    </div>
+
+                                    <div class="col-md-6 form-group">
+                                        <label>Phone Number</label>
+                                        <div class="form-control" id='phone'></div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label>Address</label>
+                                        <div class="form-control" id='address'></div>
+                                    </div>
+
+                                    <div class="col-md-6 form-group">
+                                        <label>Total Purchase Made</label>
+                                        <div class="form-control" id='total_purchase'></div>
+                                    </div>
+                                    
+                                </div>
+
+                            <table>
+                                <td class="w-50 "> 
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th>Order Date</th>
+                                            <th>Order Item </th>
+                                            <th>Purchase Value</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor='let order of orders'>
+                                                <td id='order'>{{order.date}}</td>
+                                                <td id='items'>
+                                                    <ul >
+                                                        <li *ngFor='let name of order.item'>{{name}}</li>
+                                                    </ul>
+                                                </td>
+                                                <td id='price'>{{order.value}}</td>
+                                            </tr>    
+                                            <tr *ngIf='orders.length==0'>
+                                                <td colspan="3">No Orders Made</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </td>
+                            </table>
+                               
+                                <button class="btn btn-primary" type="button" routerLink='/users-list' >Cancel</button>
+                                    
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

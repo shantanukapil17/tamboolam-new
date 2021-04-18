@@ -1,0 +1,44 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">FAQ Category List 
+                            <button mat-raised-button routerLink='./add' class="btn btn-white text-success btn-md float-right">Add FAQ Category</button>
+                        </h4>
+                    </div><br>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>S.No.</th>
+                                    <th>Name</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let listItem of List; let i=index;'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{listItem.faq_cat}}</td>
+                                    <td style="font-size: 1.2rem;">
+                                        <i class="far fa-edit" style="color:#2eca2a; cursor: pointer;" (click)="edit(listItem.id)"></i>
+                                        &nbsp;
+                                        <i class="fas fa-trash" style="color:#56452b; cursor: pointer;" (click)='delete(listItem.id)'></i>
+                                    </td>
+                                    </tr>
+                                    <tr *ngIf='List.length==0'>
+                                        <td colspan="5">No records to show</td>
+                                     </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+  </div>
+  

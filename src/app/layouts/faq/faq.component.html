@@ -1,0 +1,73 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title">FAQs
+                            <button mat-raised-button routerLink='./add' class="btn btn-white text-success btn-md float-right">Add Question</button>
+                        </h4>
+                    </div>
+
+
+
+                    <div class="card-body">
+                
+
+                    <div class="" id="accordion">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>FAQ Category</mat-label>
+                                    <mat-select>
+                                        <mat-option *ngFor='let x of categoryList' (click)='setList(x.id)' [value]='x.id'>{{x.faq_cat}}</mat-option>
+                                        <mat-option (click)='ngOnInit()' [value]='null'>Show All</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="card " *ngFor='let listItem of list'>
+                            <div class="card-header">
+                                <h4 *ngIf='!!listItem'>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">
+                                        {{listItem.question}}</a>
+                                    <div class="float-right">
+                                    <i class="far fa-edit" style="color:#2eca2a; cursor: pointer;" (click)="edit(listItem.id)"></i>
+                                    &nbsp;
+                                    <i class="fas fa-trash" style="color:#56452b; cursor: pointer;" (click)='delete(listItem.id)'></i>
+                                    </div>
+                                </h4>
+                                
+                            </div>
+                            <div id="collapseEleven" class="panel-collapse collapse">
+                                <div class="card-body">
+                                    <div class="card-text">
+                                    Ans. {{listItem.answers}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" *ngIf='list.length==0'>
+                            <div class="card-header text-center">
+                                No records to show!! 
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+  </div>
+  
+
+  <div class="container">
+    <br />
+    <br />
+    <br />
+
+</div>
+

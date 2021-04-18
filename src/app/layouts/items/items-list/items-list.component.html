@@ -1,0 +1,73 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Items List 
+                            <button mat-raised-button routerLink='/items-addition' class="btn btn-white text-success btn-md float-right">Add Items</button>
+                        </h4>
+                    </div><br>
+                    <div class="card-body">
+                        <form>
+                        <div class="row">
+                            <div class="col-md-5">
+                            <mat-form-field appearance="outline">
+                              <mat-label>View Thaamboolam Restaurant items</mat-label>
+                              <mat-select>
+                                <mat-option *ngFor='let items of restaurantList' (click)='setList(items.restaurant_name)'>{{items.restaurant_name}}</mat-option>
+                                <mat-option (click)='ngOnInit()'>Show All Items</mat-option>
+                            </mat-select>
+                              </mat-form-field>
+                            </div>
+                            <!-- <div class="col-md-5">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>View Regular/Subscription items</mat-label>
+                                <mat-select>
+                                    <mat-option value="primary">Primary</mat-option>
+                                    <mat-option value="accent">Accent</mat-option>
+                                    <mat-option value="warn">Warn</mat-option>
+                                  </mat-select>
+                              </mat-form-field>    
+                            </div> -->
+                        </div>
+                    </form>
+
+                        
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>S.No.</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Cuisine</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let listItem of itemsList; let i=index;'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{listItem.name || '-'}}</td>
+                                    <td>{{listItem.category || '-'}}</td>
+                                    <td>{{listItem.cuisine || '-'}}</td>
+                                    <td style="font-size: 1.2rem;">
+                                        <i class="far fa-edit" style="color:#2eca2a" (click)="edit(listItem._id)"></i>
+                                        &nbsp;
+                                        <i class="fas fa-trash" style="color:#56452b" (click)='delete(listItem._id)'></i>
+                                    </td>
+                                    </tr>
+                                    <tr *ngIf='!itemsList'>
+                                        <td colspan="5">No records to show</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+  </div>
+  

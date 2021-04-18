@@ -1,0 +1,77 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    
+  
+
+  <div class="card-header card-header-success">
+    <h4 class="card-title ">Add Employee</h4>
+</div>
+<div class="card-body">
+    <form  [formGroup]='employForm'ngNativeValidate> 
+     
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-form-field class="example-full-width paddingless" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput class='outline' placeholder="First Name" type="text" formControlName='employ_name'>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width paddingless" appearance="outline">
+                        <mat-label>Email Address</mat-label>
+                        <input matInput class='outline' placeholder="Email" type="email" email formControlName='email'>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width paddingless" appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput class='outline' placeholder="Phone Number" type="text" formControlName='phone'>
+                    </mat-form-field>
+                </div>
+                
+            </div>
+            <div class="row" *ngIf='!editMode'>
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width paddingless" appearance="outline" id='pass'>
+                        <mat-label>Password</mat-label>
+                        <input matInput class='outline' placeholder="Password" type="password"  formControlName='pass'>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width paddingless" appearance="outline"  id='cpass'>
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput class='outline' placeholder="Confirm Password" type="password" formControlName='confirm_pass'>
+                    </mat-form-field>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-form-field class="example-full-width"  appearance="outline">
+                       <mat-label>Address</mat-label> 
+                       <textarea matInput placeholder="Address"  formControlName="employ_address"></textarea>
+                     </mat-form-field>
+                      
+                  </div>
+            </div>
+            <button class="btn btn-light float-right" type="button" (click)='clearIt()'>Cancel</button>
+            &nbsp; 
+            <button class="btn btn-info float-right" type="submit" *ngIf=!editMode (click)='addIt()'>Add Employee</button>
+            <button class="btn btn-info float-right" type="submit" *ngIf=editMode (click)='saveIt()'>Save Employee</button>
+                
+    </form>
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

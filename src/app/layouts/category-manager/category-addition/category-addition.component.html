@@ -1,0 +1,39 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Add New Category </h4>
+                     </div>
+                    <div class="card-body">
+                        <form [formGroup]="categoryForm"> 
+                            <div class="row">
+                                <div class="col-sm-5 form-group" >
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Category Name</mat-label>
+                                        <input matInput  class='outline' formControlName="category_name" placeholder="Category Name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-5 form-group" >
+
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Category Description</mat-label>
+                                        <textarea matInput formControlName="category_description"></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button class="btn btn-light float-right" type="button" (click)='clearIt()'>Cancel</button>
+                            &nbsp; 
+                            <button class="btn btn-info float-right" type="submit" *ngIf=!editMode (click)='addIt()'>Add Category</button>
+                            <button class="btn btn-info float-right" type="submit" *ngIf=editMode (click)='saveIt()'>Save Category</button>
+                                
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,140 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Add Meal Package</h4>
+                        <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="card-body">
+                        <form  [formGroup]='mealForm'> 
+                            <div class="row">
+                              <div class="col-md-5">
+                                
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                  <mat-label>Meal Package Name</mat-label>
+                                  <input matInput class='outline' placeholder="Meal Package Name" formControlName='name'>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-5">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                  <mat-label>Single Meal Price</mat-label>
+                                  <input matInput class='outline' placeholder="Item price" formControlName='single_price' type="number" pattern="^[1-9]+[0-9]*$">
+                                  </mat-form-field>
+                              </div>
+                            </div>  
+                            
+                            <div class="row " >
+                              <div class="col-md-5">    
+                              <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>No. of items Per Week</mat-label>
+                                <input matInput class='outline' placeholder="Item price" formControlName='no_of_item' type="number" pattern="^[1-9]+[0-9]*$">
+                                </mat-form-field>
+                              </div>
+                              
+                              <div class="col-md-5">    
+                              <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Total Price of Meal Package</mat-label>
+                                <input matInput class='outline' placeholder="Item price" formControlName='meal_price' type="number" pattern="^[1-9]+[0-9]*$">
+                                </mat-form-field>
+                            </div>
+                           
+                              
+                          </div>
+                            
+
+                            <div class="row"> 
+                                <div class="col-md-5 form-group" >
+                                  <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Description</mat-label>
+                                    <textarea matInput placeholder="Description" formControlName='desc'></textarea>
+                                   </mat-form-field> 
+                                   
+                                   <div formArrayName='items' *ngFor="let items of noOfItems; let i=index">
+                                  <div class="col-sm-12 form-group" [formGroupName]='i'>
+                                    <label for='name'>Select Item For This Meal Package</label>
+                                    <mat-form-field appearance="outline">
+                                        <mat-select formControlName='itemId'>
+                                            <mat-option *ngFor='let item of itemsList' [value]='item.hk_id'>{{item.item_name}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                  </div>
+                                </div> 
+                                  <div class="col-xs-11">
+                                    <div class="col-xs-6">
+                                      <button class="btn btn-white text-success float-right" type="button" (click)=addItem()>Add Ingredients</button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-5 form-group">
+                                  <mat-label><strong>Delivery Available on</strong> </mat-label>
+                                  <div class="row">
+                                    <div class="col-md-5">
+                                      <div class="form-check" *ngFor="let day of mealForm.controls.days['controls']; let i=index;">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" [formControl]='day'>
+                                            {{daysList[i].name}}
+                                            <span class="form-check-sign"><span class="check"></span></span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                 
+                                </div>
+                              
+                           
+  
+                           <div class="row">
+                             <!-- <div class="col-md-5">
+                              
+                               <div class="dropdown">
+                                    <button href="#" class="btn dropdown-toggle bg-dark col-md-10  " data-toggle="dropdown" aria-expanded="true " >
+                                      Choose Subcription Package
+                                        <b class="caret"></b>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </div>
+                             </div> -->
+                          
+                           </div>
+                           <div class="row" *ngIf=changeImage>
+                            <mat-label class="form-label" for="customFile" (click)='print()'>Meal Plan Image:</mat-label>
+                              <input type="file" (change)="selectImage($event)" formControlName='image'>	
+                          </div>
+
+                          <div style="width: 20rem ;margin:auto;" *ngIf=!changeImage>
+                            <div class="card" style="width: 18rem;">
+                              <img class="card-img-top" [src]='img'>
+                              <div class="card-body" style="text-align: center;">
+                                <h5 class="card-title">
+                                 Meal Plan Image
+                                </h5>
+                                <mat-icon (click)='changeImage=!changeImage'>delete_outline</mat-icon>
+                                </div>
+                            </div>
+                          </div>
+
+                          <button class="btn btn-light float-right" type="button" (click)='clearIt()'>Cancel</button>
+                          &nbsp; 
+                          <button class="btn btn-info float-right" type="submit" *ngIf=!editMode (click)='addIt()' >Add Meal Package</button>
+                          <button class="btn btn-info float-right" type="submit" *ngIf=editMode (click)='saveIt()'>Save Meal Package</button>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>

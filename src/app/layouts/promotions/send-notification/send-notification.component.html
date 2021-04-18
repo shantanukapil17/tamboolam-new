@@ -1,0 +1,37 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Send Notifications
+                            <button mat-raised-button class="btn btn-white text-success btn-md float-right">Add Notifications</button>
+                        </h4>
+                        <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="card-body">
+                        <form  #f='ngForm'> 
+                            <div class="row">
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Send Notifications Text</label>
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <input matInput class='outline' placeholder="Enter the Message Text">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Send Notifications Image</label>
+                                    <div class="card"><input type="file" id="img" name="img" accept="image/*" placeholder="Drag and Drop the Image or Click here to upload"></div>
+                                </div>
+                            </div> 
+                            <button class="btn btn-primary" type="button">Cancel</button>
+                            &nbsp; 
+                            <button class="btn btn-success" type="submit"  [disabled]="!f.valid">Send Notification</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

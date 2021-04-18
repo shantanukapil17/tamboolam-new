@@ -1,0 +1,113 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Add Product</h4>
+                   </div>
+                    <div class="card-body">
+                        <form [formGroup]='itemsForm'> 
+                            <div class="row">
+                              <div class="col-md-5">
+                                  <mat-form-field class="example-full-width" appearance="outline">
+                                  <mat-label>Item Name</mat-label>
+                                  <input matInput class='outline' placeholder="Item Name" formControlName='item_name'>
+                                  </mat-form-field>
+                              </div>
+                              <!-- <div class="col-md-2">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                  <mat-label>Item Price</mat-label>
+                                  <input matInput class='outline' placeholder="Item Price" formControlName='item_price'>
+                                  </mat-form-field>
+                              </div> -->
+                            </div>    
+                            <div class="row"> 
+                                <div class="col-md-5 form-group" >
+                                  <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Description</mat-label>
+                                    <textarea matInput placeholder="Description" formControlName='item_desc'></textarea>
+                                   </mat-form-field> 
+                                </div>
+                                <div class="col-sm-5 form-group" >
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox"  formControlName='enableItem'>
+                                        Enable Item
+                                        <span class="form-check-sign">
+                                            <span class="check"></span>
+                                        </span>
+                                    </label>
+                                  </div>
+                                    
+                                </div>
+                                
+                            </div>
+  
+                            <div class="row">
+                              <div class="col-md-5 form-group">
+                                <mat-label><strong>Delivery Available on</strong> </mat-label>
+                                <div class="row">
+                                  <div class="col-md-5">
+                                    <div class="form-check" *ngFor="let day of itemsForm.controls.days['controls']; let i=index;">
+                                      <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox" [formControl]='day'>
+                                          {{daysList[i].name}}
+                                          <span class="form-check-sign"><span class="check"></span></span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-5">
+                                <mat-label><strong>Nutritional Info of this Item</strong> </mat-label>
+                                <div class="form-check" *ngFor="let nutrient of nutrientsList; let i=index;" formArrayName='nutrients'>
+                                  <div [formGroupName]='i'>
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" formControlName='name' (change)="isChange(i)">
+                                      {{nutrientsList[i].name}}
+                                      <span class="form-check-sign"><span class="check"></span></span>
+                                    </label>
+                                   
+                                    <ng-container *ngIf="itemsForm.value.nutrients[i].name" >
+                                    <mat-form-field class="outline">
+                                      <mat-label>Quantity(in gms)</mat-label>
+                                      <input matInput class='outline' placeholder="Quantity(in gms)" formControlName='quantity'>
+                                      </mat-form-field>
+                                    </ng-container>
+
+
+                                  </div>  
+                                </div>
+                              </div>
+                            </div>
+  
+                            <div class="row" *ngIf=changeImage>
+                              <mat-label class="form-label" for="customFile" (click)='print()'>Item Image:</mat-label>
+                                <input type="file" (change)="selectImage($event)" formControlName='image'>	
+                            </div>
+                            <div style="width: 20rem ;margin:auto;" *ngIf=!changeImage>
+                              <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" [src]='logo'>
+                                <div class="card-body" style="text-align: center;">
+                                  <h5 class="card-title">
+                                    Item Image
+                                  </h5>
+                                  <mat-icon (click)='changeImage=!changeImage'>delete_outline</mat-icon>
+                                  </div>
+                              </div>
+                            </div>
+                            
+                            <button class="btn btn-light" type="button" (click)='clearIt()'>Cancel</button>
+                            &nbsp; 
+                            <button class="btn btn-info" type="submit" *ngIf=!editMode (click)='addIt()' >Add Item</button>
+                            <button class="btn btn-info" type="submit" *ngIf=editMode (click)='saveIt()'>Save Item</button>
+                           
+                          </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>

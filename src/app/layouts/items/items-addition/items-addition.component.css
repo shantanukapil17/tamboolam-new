@@ -1,0 +1,19 @@
+.nxt{
+    width:40%;
+    display: inline;
+}
+
+tr{
+    border-bottom-color: white !important;
+}
+
+td{
+    padding: 0px !important;
+    width: auto ;
+}
+
+.file{
+    width: 50%;
+    height: 20%;
+    border: 1rem solid gray;
+}

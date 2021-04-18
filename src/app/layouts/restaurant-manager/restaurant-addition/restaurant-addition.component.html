@@ -1,0 +1,116 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title">Add New Restaurant</h4>
+                    </div>
+                    <div class="card-body">
+                      <form [formGroup]="restaurantForm"> 
+                            <div class="row">
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Restaurant Name</mat-label>
+                                    <input matInput class='outline' placeholder="Restaurant Name" formControlName="restaurant_name" >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width"  appearance="outline">
+                                      <mat-label>Location</mat-label>
+                                      <input matInput placeholder="Location" formControlName="location" >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width"  appearance="outline">
+                                      <mat-label>Employ from this Restaurant</mat-label>
+                                      <mat-select formControlName='employ_id'>
+                                        <mat-option *ngFor='let employ of employees' [value]="employ.user_id">{{employ.user_name}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width"  appearance="outline">
+                                    <mat-label>Restaurant Description</mat-label> 
+                                    <input matInput placeholder="Restaurant Description" type="text" formControlName="restaurant_desc" required>
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width"  appearance="outline">
+                                    <mat-label>Rating</mat-label>
+                                    <input matInput placeholder="Rating" type="number" formControlName="rating" >
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width"  appearance="outline">
+                                    <mat-label>Contact</mat-label>
+                                    <input matInput placeholder="Contact" type="text" formControlName="phone" >
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width"  appearance="outline">
+                                    <mat-label>Active Status</mat-label>  
+                                    <mat-select formControlName='status'>
+                                      <mat-option value="0">Closed</mat-option>
+                                      <mat-option value="1">Active</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                                 
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width"  appearance="outline">
+                                    <mat-label>Available for Delivery</mat-label>  
+                                    <mat-select formControlName='available_delivery'>
+                                      <mat-option value="0">Yes</mat-option>
+                                      <mat-option value="1">No</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                              
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width"  appearance="outline">
+                                     <mat-label>Address</mat-label> 
+                                     <textarea matInput placeholder="Address"  formControlName="restaurant_address"></textarea>
+                                   </mat-form-field>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row" *ngIf=changeLogo>
+                              <mat-label class="form-label" for="customFile" (click)='print()'>Restaurant Logo:</mat-label>
+                                <input type="file" (change)="selectImage($event)" formControlName='restaurant_logo'>	
+                            </div>
+                            <div style="width: 20rem ;margin:auto;" *ngIf=!changeLogo>
+                              <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" [src]='logo'>
+                                <div class="card-body" style="text-align: center;">
+                                  <h5 class="card-title">
+                                    Restaurant Logo
+                                  </h5>
+                                  <mat-icon (click)='changeLogo=!changeLogo'>delete_outline</mat-icon>
+                                  </div>
+                              </div>
+                            </div>
+
+                           <button class="btn btn-light float-right" type="button" (click)='clearIt()'>Cancel</button>
+                            &nbsp; 
+                            <button class="btn btn-info float-right" type="submit" *ngIf=!editMode (click)='addIt()' >Add Restaurant</button>
+                            <button class="btn btn-info float-right" type="submit" *ngIf=editMode (click)='saveIt()'>Save Restaurant</button>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+  </div>
+  

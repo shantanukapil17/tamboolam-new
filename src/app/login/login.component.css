@@ -1,0 +1,40 @@
+*{
+    font-family: 'Nunito';
+}
+.full-width{
+    width:100%;
+}
+.divider {
+    width:15%;
+    height:2px;
+    border-radius: 3px;
+}
+.form{
+    margin-top:10px;
+}
+section{
+    height: 100%;
+    margin: 0px;
+}
+.sides{
+    /* height:100%; */
+    padding:100px 0px 150px 0px;
+}
+.body {
+    background-image: url('../../assets/img/grilled-meat-skewers-chicken-shish-kebab-with-zucchini-tomatoes-red-onions.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0,0,0,50%);
+    height: 820px;
+   }
+.background-image {
+    display: flex;
+    align-items: stretch;
+}
+.container {
+    display: flex; /* or inline-flex */
+    /* flex-direction: row; */
+    align-items: stretch;
+    /* justify-content: space-between; */
+  }
+  

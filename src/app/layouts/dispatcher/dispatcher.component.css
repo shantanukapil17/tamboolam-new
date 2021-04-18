@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    /* flex-direction: column;
+    justify-content: space-between; */
+}
+
+/* .modal-body {
+width: 300px;
+border: 5px solid grey;
+padding: 50px;
+margin: 20px;
+} */
+
+.give-space {
+    padding: 25px;
+}
+
+.restaurant-dropdown {
+    width: 15%;
+    float: right;
+    bottom: 46px
+}

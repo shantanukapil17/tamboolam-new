@@ -1,0 +1,54 @@
+<section class="row" >
+    <div style="height: 822px;background-image: url('../../assets/img/grilled-meat-skewers-chicken-shish-kebab-with-zucchini-tomatoes-red-onions.jpg');background-repeat: no-repeat;background-size: cover;background-color: rgba(0,0,0,50%);" class="col-lg-8 col-md-8 col-sm-12 hide-on-med-and-down sides">
+        <div class="container" style="padding-top:100px;">
+            <h4 class="thin white-text"></h4>
+            <!-- <div class="divider"></div> -->
+        <img class="responsive-img left" height="400" width="400" src="../../assets/img/Thaamboolam Logo White.png">
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 sides">
+        <div class="" style="padding:0px 40px 0px 40px ">
+            <h2 class="thin" style="letter-spacing: 2px;font-weight: bold;color:#3F6AC4;">THAAMBOOLAM ON WHEELS</h2>
+            <h4 class="thin">Sign into your account</h4>
+            <div class="divider blue"></div>
+           
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div class="row" >
+                    <div class="col-sm-12" >
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Mobile Number</mat-label>
+                            <input matInput type="text" formControlName="mobileNumber"  placeholder="Mobile Number" required>
+                            <!-- <mat-error *ngFor="let validation of account_validation_messages.username">
+                                <mat-error class="error-message" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">{{validation.message}}</mat-error>
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="showOTP" class="col-lg-12 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>OTP</mat-label>
+                            <input matInput   type="text" formControlName="otp" placeholder="Send OTP" required> 
+                            <!-- <mat-error *ngFor="let validation of account_validation_messages.username">
+                                <mat-error class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">{{validation.message}}</mat-error>
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="!showOTP" class="col-lg-12 col-md-12 col-sm-12">                       
+                        <button  mat-stroked-button style="width:100%;background-color: black;color: white;">Send OTP</button>
+                    </div>
+                    <div *ngIf="showOTP" class="col-lg-12 col-md-12 col-sm-12">
+                        <button  mat-stroked-button style="width:100%;background-color: black;color: white;">Verify OTP</button>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div style="margin-top:20px">
+                            <a style="color:#c5c5c5">Forget Password?</a>
+                            <p>Don't have an account? <a href="!#">Register here</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

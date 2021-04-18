@@ -1,0 +1,12 @@
+.container {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.thicker-text {
+    font-weight: 500;
+  }
+
+.navbar-background-color {
+    background-color: #63F463;
+}

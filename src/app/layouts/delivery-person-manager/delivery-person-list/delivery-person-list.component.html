@@ -1,0 +1,76 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Delivery Person List 
+                        <a mat-raised-button class="btn btn-white text-success btn-md float-right" routerLink="../add-delivery-person">Add Delivery Person</a>
+                    </h4></div>
+                    <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Delivery Person Name</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor='let driver of optionsList' (click)='setList(driver.user_id)' [value]='driver.user_id'>{{driver.user_name}}</mat-option>
+                                <mat-option (click)='ngOnInit()'>Show All</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        </div>
+                        <!-- <div class="col-md-5">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Choose Orders Made On</mat-label>
+                                <input matInput [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker">
+                                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>       
+                        </div> -->
+                    </div>
+                
+                  
+                   
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>S.No.</th>
+                                    <th>Name</th>
+                                    <th>Email Address</th>
+                                    <!-- <th>Profile</th>/ -->
+                                    <th>Address</th>
+                                    <th>Contact Details</th>
+                                    <th>Rating</th>
+                                    <th>Total Deliveries</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let listItem of deliveryPersonList; let i=index;'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{listItem.name || '-'}}</td>
+                                    <td>{{listItem.email || '-'}}</td>
+                                    <!-- <td><img src='listItem.profile'></td> -->
+                                    <td>{{listItem.address || '-'}}</td>
+                                    <td>{{listItem.rating || '-'}}*</td>
+                                    <td>{{listItem.phone || '-'}}</td>
+                                    <td>{{listItem.order_count || '-'}}</td>    
+                                    <td style="font-size: 1.2rem;">
+                                        <i class="far fa-edit" style="color:#2eca2a" (click)="edit(listItem._id)"></i>
+                                        &nbsp;
+                                        <i class="fas fa-trash" style="color:#56452b" (click)='delete(listItem._id)'></i>
+                                    </td>
+                                    </tr>
+                                    <tr *ngIf='deliveryPersonList.length==0'><td colspan='6'>No records to show</tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

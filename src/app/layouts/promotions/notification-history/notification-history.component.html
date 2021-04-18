@@ -1,0 +1,43 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Notification History</h4>
+                        <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>S.No.</th>
+                                    <th>Notification</th>
+                                    <th>Image</th>
+                                    <th>Sent Time</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                  
+                                    <tr *ngFor='let listItem of list; let i=index;'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{listItem.name}}</td>
+                                    <td><img src='listItem.image'></td>
+                                    <td>{{listItem.sentTime | date: 'medium'}}</td>
+                                    <td style="font-size: 1.2rem;">
+                                        <i class="far fa-edit" style="color:#2eca2a" (click)="edit(listItem.id)"></i>
+                                        &nbsp;
+                                        <i class="fas fa-trash" style="color:#56452b" (click)='delete(listItem.id)'></i>
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

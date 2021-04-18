@@ -1,0 +1,340 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">content_copy</i>
+                      </div>
+                      <p class="card-category">Orders Recieved</p>
+                      <h3 class="card-title">10
+                          <small>+</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">date_range</i> Last 24 Hours
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">store</i>
+                      </div>
+                      <p class="card-category">Orders Recived</p>
+                      <h3 class="card-title">20+</h3>
+                      
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">date_range</i> Last 24 Hours
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">shopping_cart</i>
+                      </div>
+                      <p class="card-category">Daily Earnings</p>
+                      <h3 class="card-title">75089</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">update</i> updated 1 min ago
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">account_balance_wallet</i>
+                      </div>
+                      <p class="card-category">Total earnings</p>
+                      <h3 class="card-title">+245670</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">update</i> Just Updated
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card card-chart">
+                  <div class="card-header card-header-success">
+                      <div class="ct-chart" id="dailySalesChart"></div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">Daily Sales</h4>
+                      <p class="card-category">
+                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> updated 4 minutes ago
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card card-chart">
+                  <div class="card-header card-header-warning">
+                      <div class="ct-chart" id="websiteViewsChart"></div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">Monthly sales</h4>
+                      <p class="card-category"><span class="text-success"><i class="fa fa-long-arrow-up"></i> 10% </span> increase since last month</p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> data sent 2 days ago
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card card-chart">
+                  <div class="card-header card-header-danger">
+                      <div class="ct-chart" id="completedTasksChart"></div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">Total orders</h4>
+                      <p class="card-category">Last quarter Performance</p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> data sent 2 days ago
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header card-header-tabs card-header-success">
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                                <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                 Switch Screens
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="profile">
+                      <div class="card-body table-responsive">
+                          <table class="table table-hover">
+                              <thead class="text-primary">
+                                  <th>Switch Screen</th>
+                                  <th>active Status</th>
+                                  <th>Change Status</th>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let i of switchscreens">
+                                      <td>{{i.name}}</td>
+                                      <td>{{i.status==1?'yes':'no'}}</td>
+                                      <td>
+                                        <form [formGroup]="status" #formdirective="ngForm">
+                                            <mat-form-field class="example-full-width"   appearance="outline">
+                                                <mat-label>Available for Delivery</mat-label>  
+                                                <mat-select formControlName='available_delivery' (selectionChange)="changeStatus($event, formdirective,i.id)">
+                                                  <mat-option value="1">Yes</mat-option>
+                                                  <mat-option value="0">No</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>                                            
+                                        </form>
+                                      </td>              
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+      
+          <div class="col-lg-12 col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-tabs card-header-success">
+                      <div class="nav-tabs-navigation">
+                          <div class="nav-tabs-wrapper">
+                              <span class="nav-tabs-title">Tasks:</span>
+                              <ul class="nav nav-tabs" data-tabs="tabs">
+                                  <li class="nav-item">
+                                      <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                          <i class="material-icons">storefront</i> recent orders
+                                          <div class="ripple-container"></div>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                          <i class="material-icons">person</i> Employees
+                                          <div class="ripple-container"></div>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                          <i class="material-icons">local_shipping</i> Orders Delivered
+                                          <div class="ripple-container"></div>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="profile">
+                            <div class="card-body table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="text-primary">
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Address</th>
+                                        <th>Status</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>customer A</td>
+                                            <td>house no12 abc society city hall</td>
+                                            <td class="text-success">Delieverd</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>customer B</td>
+                                            <td>house no12 abc society city hall</td>
+                                            <td class="text-danger">Accept Order</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>customer C</td>
+                                            <td>house no12 abc society city hall</td>
+                                            <td class="text-success">Delieverd</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>customer D</td>
+                                            <td>house no12 abc society city hall</td>
+                                            <td class="text-warning">Processed</td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="messages">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Salary</th>
+                                    <th>Country</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Dakota Rice</td>
+                                        <td>$36,738</td>
+                                        <td>Niger</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Minerva Hooper</td>
+                                        <td>$23,789</td>
+                                        <td>Curaçao</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Sage Rodriguez</td>
+                                        <td>$56,142</td>
+                                        <td>Netherlands</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Philip Chaney</td>
+                                        <td>$38,735</td>
+                                        <td>Korea, South</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane" id="settings">
+                            <table class="table table-hover">
+                                <thead class="text-primary">
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Address</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Order Type</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>customer A</td>
+                                        <td>house no12 abc society city hall</td>
+                                        <td>10:25-14/10/2020</td>
+                                        <td class="text-success">Paid</td>
+                                        <td>Subscription</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>customer B</td>
+                                        <td>house no12 abc society city hall</td>
+                                        <td>10:25-14/10/2020</td>
+                                        <td class="text-danger">Payment failed</td>
+                                        <td>Regular order</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>customer A</td>
+                                        <td>house no12 abc society city hall</td>
+                                        <td>10:25-14/10/2020</td>
+                                        <td class="text-success">Paid</td>
+                                        <td>Subscription</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>customer D</td>
+                                        <td>house no12 abc society city hall</td>
+                                        <td>10:25-14/10/2020</td>
+                                        <td class="text-warning">Order Cancelled</td>
+                                        <td>Regular order</td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+       
+  </div>
+</div>

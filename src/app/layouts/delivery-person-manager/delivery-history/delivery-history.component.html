@@ -1,0 +1,81 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Delivery History
+                        <a mat-raised-button class="btn btn-white text-success btn-md float-right" routerLink="/add-delivery-person">Add Delivery Person</a>
+                        </h4>   
+                    </div>
+                    <br>
+                    <form class="example-container">
+                        <div class="container">
+                            <div class="row">
+                            <div class="col-md-5">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Delivery Person Name</mat-label>
+                          <mat-select>
+                            <mat-option *ngFor='let person of deliveryPersonList' (click)='setList(person.user_id)' [value]='person.user_id'>{{person.user_name}}</mat-option>
+                            <mat-option (click)='ngOnInit()' value='null'>Show All Deliveries</mat-option>
+                        </mat-select>
+                          </mat-form-field>
+                        </div>
+                        <!-- <div class="col-md-5">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Choose Orders Made On</mat-label>
+                            
+                            <mat-datepicker-toggle matSuffix [for]="picker">
+                                <input matInput [matDatepicker]="picker">
+                                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                          
+                        </div> -->
+                        </div>
+                    </div>
+                      </form>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>S.No.</th>
+                                    <th>Time</th>
+                                    <th>Customer Name</th>
+                                    <th>Restaurant</th>
+                                    <th>Address</th>
+                                    <th>Cost</th>
+                                    <th>Status</th>
+                                    <th>Rating</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let listItem of deliveryList; let i=index; '>
+                                    <td>{{i+1}}</td>
+                                    <td>{{listItem.order_date}}</td>
+                                    <td>{{listItem.user_name}}</td>
+                                    <td>{{restaurantList[i]}}</td>
+                                    <td>{{listItem.to_address}}</td>
+                                    <td>{{listItem.total_price}}</td>
+                                    <td>{{listItem.order_status}}</td>
+                                    <td>{{listItem.order_rating}}*</td>
+                                   </tr>
+                                   <tr *ngIf='deliveryList.length==0'><td colspan='8'>No records to show</tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="cen">
+                        <button class="btn btn-primary" type="button">Print</button>
+                        &nbsp; 
+                        <button class="btn btn-primary" type="submit" >PDF</button>
+                        &nbsp;
+                        <button class="btn btn-primary" type="submit" >CSV</button>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+           
+    </div>
+  </div>
+  

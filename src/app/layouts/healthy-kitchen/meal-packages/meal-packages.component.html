@@ -1,0 +1,47 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Meal Packages
+                        <button mat-raised-button class="btn btn-white text-success btn-md float-right"(click)='navigate()'>Add Meal Package</button>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>S.No</th>
+                                    <th>Meal Package</th>
+                                    <th>Price</th>
+                                    <th>Delivery</th>
+                                    <th>Image</th>
+                                    <th>Package Creation</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor='let listItem of mealList; let i=index;'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{listItem.meal_package_name}}</td>
+                                    <td>{{listItem.meal_package_price}}</td>
+                                    <td>{{listItem.delivery_available_on}}</td>
+                                    <td><img [src]="listItem.image" class="img-responsive" style="width: 8rem;"></td>
+                                    <td>{{listItem.creation_date | date:small}}</td>
+                                    <td style="font-size: 1.2rem;">
+                                        <i class="far fa-edit" style="color:#2eca2a" (click)="edit(listItem.id)"></i>
+                                        &nbsp;
+                                        <i class="fas fa-trash" style="color:#56452b" (click)='delete(listItem.id)'></i>
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+  </div>

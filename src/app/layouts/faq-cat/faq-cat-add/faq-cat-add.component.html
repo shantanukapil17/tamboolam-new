@@ -1,0 +1,34 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Add FAQ Category </h4>
+                     </div>
+                    <div class="card-body">
+                        <form [formGroup]="faqForm"> 
+                            <div class="row">
+                                <div class="form-group col-6" >
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>FAQ Category</mat-label>
+                                        <input matInput  class='outline' formControlName="faq_cat">
+                                    </mat-form-field>
+                                </div>
+                               
+                            </div>
+                            <button class="btn btn-light float-right" type="button" (click)='clearIt()'>Cancel</button>
+                            &nbsp; 
+                            <button class="btn btn-info float-right" type="submit" *ngIf=!editMode (click)='addIt()'>Add Category</button>
+                            <button class="btn btn-info float-right" type="submit" *ngIf=editMode (click)='saveIt()'>Save Category</button>
+                          
+                                
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

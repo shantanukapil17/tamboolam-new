@@ -1,0 +1,70 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">App Banner Creation</h4>
+                        <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="card-body">
+                        <form  [formGroup]='bannerForm'> 
+                            <div class="row">
+                                  <div class="col-md-6">
+                                    <label for='name'>Banner Name</label> <mat-form-field class="example-full-width" appearance="outline">
+                                      <input matInput class='outline' placeholder="BannerName" type="text" formControlName='name'>
+                                      </mat-form-field>
+                                  </div>
+                            </div>    
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <label for='name'>Banner Position</label> 
+                                  <mat-form-field appearance="outline">
+                                    <mat-select formControlName='position'>
+                                      <mat-option value="top">Top</mat-option>
+                                      <mat-option value="middle">Middle</mat-option>
+                                      <mat-option value="bototm">Bottom</mat-option>
+                                    </mat-select>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label for='name'>Status</label> 
+                                    <mat-form-field appearance="outline">
+                                      <mat-select formControlName='status'>
+                                        <mat-option value="active">Active</mat-option>
+                                        <mat-option value="not_acitve">Not Acitve</mat-option>
+                                    </mat-select>
+                                    </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf=changeLogo>
+                                    <mat-label class="form-label" for="customFile" (click)='print()'>Restaurant Logo:</mat-label>
+                                      <input type="file" (change)="selectImage($event)" formControlName='image'>	
+                                  </div>
+                                  <div style="width: 20rem ;margin:auto;" *ngIf=!changeLogo>
+                                    <div class="card" style="width: 18rem;">
+                                      <img class="card-img-top" [src]='logo'>
+                                      <div class="card-body" style="text-align: center;">
+                                        <h5 class="card-title">
+                                         Banner
+                                        </h5>
+                                        <mat-icon (click)='changeLogo=!changeLogo'>delete_outline</mat-icon>
+                                        </div>
+                                    </div>
+                                  </div>
+      
+                                  <mat-error *ngIf="bannerForm.invalid && bannerForm.touched" >Fill the required details correctly</mat-error>   
+                                  <button class="btn btn-light float-right" type="button" (click)='clearIt()'>Cancel</button>
+                                  &nbsp; 
+                                  <button class="btn btn-info float-right"  type="submit" *ngIf=!editMode (click)='addIt()' >Add Banner</button>
+                                  <button class="btn btn-info float-right" type="submit" *ngIf=editMode (click)='saveIt()'>Save Banner</button>
+                                 
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

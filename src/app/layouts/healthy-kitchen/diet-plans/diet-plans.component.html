@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Diet Plans
+                        <button mat-raised-button class="btn btn-white text-success btn-md float-right" (click)='navigate()'>Add Diet plan</button></h4>
+                    </div>
+                    <div class="card-body">
+                        
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                  <th>S.No</th>
+                                  <th>Diet Plan    
+                                  <th>Price</th>
+                                  <th>Delivery Available On</th>
+                                  <th>Image</th>
+                                  <th>Action</th>
+                                </thead>
+                                
+                                <tbody>
+                                  <tr *ngFor='let listItem of itemsList; let i=index;'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{listItem.dite_plan_name}}</td>
+                                    <td>{{listItem.dite_meal_price}}</td>
+                                    <td>{{listItem.delivery_available_on}}</td>
+                                    <td><img [src]="listItem.image" class="img-responsive" style="width: 8rem;"></td>
+                                    <td style="font-size: 1.2rem;">
+                                        <i class="far fa-edit" style="color:#2eca2a" (click)="edit(listItem.id)"></i>
+                                        &nbsp;
+                                        <i class="fas fa-trash" style="color:#56452b" (click)='delete(listItem.id)'></i>
+                                    </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+  </div>

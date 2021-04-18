@@ -1,0 +1,58 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Switch Screens</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Switch Screen</th>
+                                    <th>Active Status</th>
+                                    <th>Change Status</th>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor='let item of switchScreen; let i=index;'>
+                                      <td>{{item.name}}</td>
+                                      <td>{{item.status ? 'ONLINE' : 'OFFLINE'}}</td>
+                                      <td style="font-size: 1.2rem;">
+                                        <i class="far fa-edit" style="color:#2eca2a" (click)="changeStatus(item._id,item.status)"></i>
+                                    </td>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+  </div>
+
+  <ng-template #updateStatus let-modal >
+    <div class="modal-header">
+      <h4 class="modal-title">Order Detail</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <ul class="give-space">
+      <li><strong>Order Id:</strong>{{orderId || '-' }}</li>
+      <li><strong>Restaurant Name:</strong>{{restaurantName || '-'}}</li>
+      <li><strong>Customer Name:</strong>{{userName || '-'}}</li>
+      <li><strong>Address:</strong>{{deliveryAddress || '-'}}</li>
+      <li><strong>Phone No:</strong>{{userPhone || '-'}}</li>
+      <li><strong>Order Date:</strong>{{orderId || '-'}}</li>
+      <li><strong>Note:</strong>{{note || '-'}}</li>
+      <li><strong>Total Amount:</strong>{{totalAmount || '-'}}</li>
+    </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  

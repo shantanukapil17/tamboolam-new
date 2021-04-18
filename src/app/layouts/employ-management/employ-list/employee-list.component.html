@@ -1,0 +1,49 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Employees List
+                            <button mat-raised-button class="btn btn-white text-success btn-md float-right" routerLink='/add-employee'>Add Employee</button>
+                        </h4></div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>S.No.</th>
+                                    <th>Name</th>
+                                    <th>Email Address</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let listItem of employeeList; let i=index;'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{listItem.user_name}}</td>
+                                    <td>{{listItem.email}}</td>
+                                    <td>{{listItem.phone}}</td>
+                                    <td>{{listItem.address}}</td>
+                                    <td style="font-size: 1.2rem;">
+                                        <i class="far fa-edit" style="color:#2eca2a" (click)="edit(listItem.user_id)"></i>
+                                        &nbsp;
+                                        <i class="fas fa-trash" style="color:#56452b" (click)='delete(listItem.user_id)'></i>
+                                    </td>
+                                    </tr>
+
+                                    <tr *ngIf='employeeList.length==0'>
+                                        <td colspan="6">No records to show</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

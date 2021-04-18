@@ -1,0 +1,164 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Add New Subscription Meal Package </h4>
+                        <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="card-body">
+                        <form  #f='ngForm'> 
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <label>Subcription Meal Package Name</label>
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                      <mat-label>Add Meal Package Name </mat-label>
+                                      <input matInput class='outline' placeholder="Restaurant Name" type="text">
+                                    </mat-form-field>
+                                  </div>                                  
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                      <label>Add items List</label>
+                                      <div class="dropdown">
+                                        <button href="#" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
+                                            Choose Subscription Package
+                                            <b class="caret"></b>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">One more separated link</a></li>
+                                        </ul>
+                                    </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total Orders Per day</label>
+                                        <mat-form-field class="example-full-width"  appearance="outline">
+                                          <input matInput placeholder="Breakfast/Lunch/Dinner" type="text">
+                                        </mat-form-field>
+                                    </div>
+                                    
+                                    
+                                </div>
+                               
+                                <div class="row">
+                                  
+                                  <div class="col-md-3">
+                                    
+                                      <label>Total Orders in the Package</label>
+                                      <div class="dropdown">
+                                        <button href="#" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
+                                          Total Orders in the Package
+                                            <b class="caret"></b>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">One more separated link</a></li>
+                                        </ul>
+                                        <label>sx</label>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select>
+                                            <mat-option value="primary">Primary</mat-option>
+                                            <mat-option value="accent">Accent</mat-option>
+                                            <mat-option value="warn">Warn</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>    
+                                    </div>
+                                  </div>
+  
+                                 
+                                  
+                                  
+                              </div>
+                         
+                                  <div class="">
+                              <label>Meal Package Subscription Variants</label>
+                            </div>
+                              <div class="row">
+                                
+                                  
+                                <div class="col-md-2">
+                                  
+                                    
+                                    <mat-form-field class="example-full-width"  appearance="outline">
+                                      <input matInput placeholder="Durantion in Days" type="text">
+                                    </mat-form-field>
+                                </div>
+  
+                                <div class="col-md-2">
+                                  
+                                  <mat-form-field class="example-full-width"  appearance="outline">
+                                    <input matInput placeholder="Price" type="text">
+                                  </mat-form-field>
+                              </div>
+                                
+                                
+                            </div>
+                            <div class="row">
+                                  
+                              <div class="col-md-2">
+                                
+                                  
+                                  <mat-form-field class="example-full-width"  appearance="outline">
+                                    <input matInput placeholder="Durantion in Days" type="text">
+                                  </mat-form-field>
+                              </div>
+  
+                              <div class="col-md-2">
+                                
+                                <mat-form-field class="example-full-width"  appearance="outline">
+                                  <input matInput placeholder="Price" type="text">
+                                </mat-form-field>
+                            </div>
+                              
+                              
+                          </div>
+  
+                            <div class="row">
+                                  
+                              <div class="col-md-2">
+                                
+                                  
+                                  <mat-form-field class="example-full-width"  appearance="outline">
+                                    <input matInput placeholder="Durantion in Days" type="text">
+                                  </mat-form-field>
+                              </div>
+  
+                              <div class="col-md-2">
+                               
+                                <mat-form-field class="example-full-width"  appearance="outline">
+                                  <input matInput placeholder="Price" type="text">
+                                </mat-form-field>
+                            </div>
+                              
+                              
+                          </div>
+  
+                        
+                               
+                                <button class="btn btn-primary" type="button">Cancel</button>
+                                &nbsp; 
+                                <button class="btn btn-success" type="submit"  [disabled]="!f.valid">Add Subscription</button>
+                                    
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,202 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-header card-header-tabs card-header-success">
+                    <span class="nav-tabs-title">Dispute Manager</span> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="dropdown">
+                                <button href="#" class="btn dropdown-toggle bg-light col-md-10 text-dark" data-toggle="dropdown" aria-expanded="true " >
+                                  Search by order id
+                                    <b class="caret"></b>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor='let list of cancelledOrderList;let i=index' (click)='showSelectedOrder(i)'>{{list.order_id}}</li>
+                                </ul>
+                            </div>
+                        </div>
+<!-- 
+                        <div class="col">
+                            <div class="dropdown">
+                                <button href="#" class="btn dropdown-toggle bg-light col-md-10 text-dark" data-toggle="dropdown" aria-expanded="true " >
+                                  Search by Cancelled/Refunded/Complained
+                                    <b class="caret"></b>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div> -->
+                        
+                    </div>
+                    <br>
+
+                            <div class="row">
+                              <div class="col-md-6">
+                                  <div class="">
+                                    <div class="card">
+                                        <div class="card-header card-header-tabs card-header-rose">
+                                            <div class="nav-tabs-navigation">
+                                                <div class="nav-tabs-wrapper">
+                                                    <span class="nav-tabs-title">Tasks:</span>
+                                                    <ul class="nav nav-tabs" data-tabs="tabs">
+                                                        <li class="nav-item active">
+                                                            <a href="#profile" class="nav-link" data-toggle="tab">
+                                                                <i class="material-icons">bug_report</i> Cancelled
+                                                                <div class="ripple-container"></div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="#messages" class="nav-link" data-toggle="tab">
+                                                                <i class="material-icons">code</i> Complaints
+                                                                <div class="ripple-container"></div>
+                                                            </a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="profile">
+                                   
+                                    <div class="card" *ngFor='let list of orderList;let i=index;'>
+                                        <div class="card-header card-header-icon card-header-rose">
+                                        <div class="card-icon">
+                                            <i class="material-icons">account_circle</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Order ID #{{list.order_id}}</strong> </h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 card-body">
+                                                <ul>
+                                                    <li>{{list.user_name}}</li>
+                                                    <li>+{{list.phone}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col">
+                                                <div class="example-button-row">
+                                                <button mat-raised-button class="btn btn-warning btn-sm float-right" (click)='selectOrder(i)'>Order Details</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="tab-pane" id="messages">
+                                    Second Tab
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+                
+            <div class="col-lg-6 col-md-6">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                        <div class="card-header card-header-tabs card-header-rose">
+                            <span class="nav-tabs-title">Order Details</span> 
+                        </div>
+                        <div class="card-body" *ngIf='!!selectedOrderIndex || selectedOrderIndex==0'>
+                        
+                            <div class="col">
+                            <table>
+                                <tr>
+                                    <td>Customer Name:</td>
+                                    <td>{{selectedOrder.user_name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Delivery Name:</td>
+                                    <td>{{driver_name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Restaurant:</td>
+                                    <td>{{restaurant_name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Order Date:</td>
+                                    <td>{{selectedOrder.order_date}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address:</td>
+                                    <td>{{selectedOrder.to_address}}</td>
+                                </tr>
+                            </table>
+                            <button mat-raised-button class="btn btn-success btn-sm ">Chat with Customer</button>
+                        </div>
+                        </div>
+                        <div class="card-body text-center" *ngIf='!selectedOrderIndex && selectedOrderIndex!=0'>
+                            No Order Selected
+                        </div>
+                    </div>
+                </div>
+        
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header card-header-tabs card-header-rose">
+                                    <span class="nav-tabs-title">Dispute Handler</span> 
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center" >
+                                        <p><strong>Order Status</strong></p>
+                                        <div class="dropdown">
+                                            <button href="#" class="btn dropdown-toggle bg-light col-md-10 text-dark" data-toggle="dropdown" aria-expanded="true " >
+                                                Total Orders in the Package
+                                                <b class="caret"></b>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                        <button mat-raised-button class="btn btn-success btn-sm ">Change Status</button>
+                                    </div>
+                                    <div  class="text-center" >
+                                        <p><strong>Refund</strong></p>
+                                        <label>Add Refund Amount</label>
+                                        <input matInput class='outline' placeholder="Add refund Amount" type="text">
+                                        <button mat-raised-button class="btn btn-success btn-sm ">Add Refund</button>
+                                    </div>
+                                    <div class="text-center" >
+                                        <p><strong>Complaint Status</strong></p>
+                                        <div class="dropdown">
+                                        <button href="#" class="btn dropdown-toggle col-md-10 bg-light text-dark" data-toggle="dropdown" aria-expanded="true" >
+                                        Cancelled
+                                        <b class="caret"></b>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">One more separated link</a></li>
+                                        </ul>
+                                    </div>
+                                    <button mat-raised-button class="btn btn-success btn-sm  ">Change Status</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>  

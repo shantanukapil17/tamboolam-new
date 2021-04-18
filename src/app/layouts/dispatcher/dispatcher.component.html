@@ -1,0 +1,440 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-header card-header-tabs card-header-success">
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <!-- <span class="nav-tabs-title">Tasks:</span> -->
+                            <ul class="nav nav-tabs" data-tabs="tabs">
+                                <li class="nav-item">
+                                    <a mat-button (click)="switchTab('placed')" class="nav-link active" href="#newOrders" data-toggle="tab">
+                                        <i class="material-icons">receipt_long</i> New Order
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a mat-button (click)="switchTab('accepted')" class="nav-link" href="#acceptedOrders" data-toggle="tab">
+                                        <i class="material-icons">person</i> Accepted Orders
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a mat-button (click)="switchTab('progress')" class="nav-link" href="#ongoingOrders" data-toggle="tab">
+                                        <i class="material-icons">local_shipping</i> Delivering Orders
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a mat-button (click)="switchTab('pickup')" class="nav-link" href="#takeaway" data-toggle="tab">
+                                    <i class="material-icons">delivery_dining</i> Take Away Orders
+                                      <div class="ripple-container"></div>
+                                  </a>
+                              </li>
+                                <li class="nav-item">
+                                    <a mat-button (click)="switchTab('delivered')" class="nav-link" href="#deliveredOrders" data-toggle="tab">
+                                        <i class="material-icons">room_service</i>Delivered Orders
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+
+                            <!-- <div >
+                              <mat-form-field [ngStyle]="{width: '16%', float:'right', bottom: '48px', color:'white'}" >
+                                <mat-label [ngStyle]="{color:'white'}">Restaurant Name</mat-label>
+                                <mat-select (selectionChange)="onRestaurantSelect($event)">
+                                  <mat-option *ngFor="let restaurantName of restaurantList" [value]="restaurantName._id">
+                                   {{restaurantName.name}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div> -->
+                           
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="newOrders">
+                          <div class="card-body table-responsive">
+                              <div class="row">
+                                <div class="col-md-7 order">
+                                   
+                                    <!-- <div class="card" *ngFor='let list of newOrderList'> -->
+                                      <div class="card" *ngFor='let list of allOrderList'>
+                                        <div class="card-header card-header-icon card-header-warning">
+                                          <div class="card-icon">
+                                            <i class="material-icons">account_circle</i>
+                                          </div>
+                                          <h4 class="card-title"><strong>Order ID #{{list._id || '-'}}</strong> </h4>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-md-4 card-body container">
+                                            <ul>
+                                            <li><strong>Name: </strong> {{list._id || '-'}}</li>
+                                            <li><strong>Phone No: </strong>+91 {{list.user_phone || '-'}}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                            <button mat-raised-button class="btn btn-warning btn-sm ">Assign Order </button>
+                                            <button mat-raised-button class="btn btn-info btn-sm">Request for change </button>
+                                            </div>
+                                          </div>
+                                        <!-- <div class=" col ">
+                                          <div class="example-button-row">
+                                              
+                                              <button mat-raised-button class="btn btn-warning btn-sm">Order Details</button>
+                                              <button mat-raised-button class="btn btn-info btn-sm">Message</button>
+                          
+                                            </div>
+                                      </div> -->
+                                        <div class="col">
+                                            <div class="example-button-row">
+                                                <button (click)="openScrollableContent(orderDetail, list._id, list.restaurant_name, list.user_name,list.delivery_address, list.user_phone, list.note, list.sub_total)"mat-raised-button class="btn btn-success btn-sm">Order Details</button>
+                                                <button mat-raised-button class="btn btn-danger btn-sm">Message</button>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                </div>
+                               
+                              <div class="col-lg-5 col-md-5">
+                                <!-- <div > -->
+                              <!-- <mat-form-field [ngStyle]="{width: '16%', float:'right', bottom: '48px', color:'white'}" >
+                                <mat-label [ngStyle]="{color:'white'}">Restaurant Name</mat-label>
+                                <mat-select (selectionChange)="onRestaurantSelect($event)">
+                                  <mat-option *ngFor="let restaurantName of restaurantList" [value]="restaurantName._id">
+                                   {{restaurantName.name}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field> -->
+                            <!-- </div> -->
+
+                                  <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Enter a date range</mat-label>
+                                      <mat-date-range-input [rangePicker]="picker">
+                                        <input matStartDate placeholder="Start date" #dateRangeStart>
+                                        <input matEndDate placeholder="End date" #dateRangeEnd
+                                        (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
+                                       
+                                      </mat-date-range-input>
+                                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                      <mat-date-range-picker #picker></mat-date-range-picker>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                      <mat-label >Restaurant Name</mat-label>
+                                      <mat-select (selectionChange)="onRestaurantSelect($event)">
+                                        <mat-option *ngFor="let restaurantName of restaurantList" [value]="restaurantName._id">
+                                         {{restaurantName.name}}
+                                        </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="container-fluid">
+                                    <div class="map-responsive">
+                                   <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
+                                </div>
+                              </div>
+                                
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane " id="acceptedOrders">
+                            <div class="card-body table-responsive">
+                                <div class="row">
+                                  <div class="col-md-7 order">
+                                    <div class="card" *ngFor='let list of allOrderList;'>
+                                      <div class="card-header card-header-icon card-header-rose">
+                                        <div class="card-icon">
+                                          <i class="material-icons">account_circle</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Order ID #{{list._id || '-'}}</strong> </h4>
+                                      </div>
+                                      <div class="row">
+                                      <div class="col-md-4 card-body">
+                                        <ul>
+                                          <li><strong>Name: </strong> {{list.user_name || '-'}}</li>
+                                          <li><strong>Phone No: </strong>+91 {{list.user_phone || '-'}}</li>
+                                        </ul>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-12">
+                                      <button (click)="openScrollableContent(orderDetail, list._id, list.restaurant_name, list.user_name,list.delivery_address, list.user_phone, list.note, list.sub_total)" mat-raised-button class="btn btn-warning btn-sm ">Dispute</button>
+                                      <button mat-raised-button class="btn btn-info btn-sm">Delivery Guy Picked Up </button>
+                                      </div>
+                                    </div>
+                                  <!-- <div class=" col ">
+                                    <div class="example-button-row">
+                                        
+                                        <button mat-raised-button class="btn btn-warning btn-sm">Order Details</button>
+                                        <button mat-raised-button class="btn btn-info btn-sm">Message</button>
+                    
+                                      </div>
+                                </div> -->
+                                  <div class="col">
+                                      <div class="example-button-row">
+                                          
+                                          <!-- <button mat-raised-button class="btn btn-success btn-sm" (click)="openScrollableContent(orderDetail, list._id, list.restaurant_name, list.user_name,list.delivery_address, list.user_phone, list.note, list.sub_total)">Order Details</button> -->
+                                          <!-- <button mat-raised-button class="btn btn-warning btn-sm">Order Details</button>
+                                          <button mat-raised-button class="btn btn-info btn-sm">Message</button> -->
+                                          <!-- <button mat-raised-button class="btn btn-danger btn-sm">Message</button> -->
+                                          
+                                        </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                     
+                                      
+                                  </div>
+                                  
+                                <div class="col-lg-5 col-md-5">
+                                    <div class="col-md-12">
+                                      <mat-form-field appearance="fill">
+                                          <mat-label>Choose a date</mat-label>
+                                          <input matInput [matDatepicker]="picker2">
+                                          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                          <mat-datepicker #picker2></mat-datepicker>
+                                        </mat-form-field>
+                                  </div>
+                                  <div class="container-fluid">
+                                      <div class="map-responsive">
+                                     <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                  </div>
+                                  </div>
+                                </div>
+                                  
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane " id="ongoingOrders">
+                            <div class="card-body table-responsive">
+                                <div class="row">
+                                  <div class="col-md-7 order">
+                                      <div class="card" *ngFor='let list of allOrderList;'>
+                                          <div class="card-header card-header-icon card-header-primary">
+                                            <div class="card-icon">
+                                              <i class="material-icons">account_circle</i>
+                                            </div>
+                                            <h4 class="card-title"><strong>Order ID #{{list._id}}</strong> </h4>
+                                          </div>
+                                          <div class="row">
+                                          <div class="col-md-5 card-body">
+                                            <ul>
+                                              <li><strong>Name: </strong> {{list.user_name || '-'}}</li>
+                                              <li><strong>Phone No: </strong>+91 {{list.user_phone || '-'}}</li>
+                                            </ul>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-sm-12">
+                                          <!-- <button mat-raised-button class="btn btn-warning btn-sm ">Transit</button> -->
+                                          <!-- <button mat-raised-button class="btn btn-info btn-sm">Message</button> -->
+                                          </div>
+                                        </div>
+                                      <div class=" col ">
+                                        <div class="example-button-row">
+                                            
+                                            <!-- <button mat-raised-button class="btn btn-warning btn-sm">Order Details</button>
+                                            <button mat-raised-button class="btn btn-info btn-sm">Message</button> -->
+                        
+                                          </div>
+                                    </div>
+                                      <div class="col">
+                                          <div class="example-button-row">
+                                              
+                                              <button mat-raised-button class="btn btn-success btn-sm" 
+                                              (click)="openScrollableContent(orderDetail, list._id, list.restaurant_name, list.user_name,list.delivery_address, list.user_phone, list.note, list.sub_total)">
+                                              Order Order Details</button>
+                                              <!-- <button mat-raised-button class="btn btn-warning btn-sm">Order Details</button>
+                                              <button mat-raised-button class="btn btn-info btn-sm">Message</button> -->
+                                              <button mat-raised-button class="btn btn-danger btn-sm">Message</button>
+                                              <button mat-raised-button class="btn btn-warning btn-sm ">Transit</button>
+                                            </div>
+                                      </div>
+                                      </div>
+                                      </div>
+                                     
+                                  </div>
+                                  
+                                <div class="col-lg-5 col-md-5">
+                                    <div class="col-md-12">
+                                      <mat-form-field appearance="fill">
+                                          <mat-label>Choose a date</mat-label>
+                                          <input matInput [matDatepicker]="picker3">
+                                          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                          <mat-datepicker #picker3></mat-datepicker>
+                                        </mat-form-field>
+                                  </div>
+                                  <div class="container-fluid">
+                                      <div class="map-responsive">
+                                     <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                  </div>
+                                  </div>
+                                </div>
+                                  
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- take away -->
+                          <!-- <div class="tab-pane active" id="takeaway">
+                            <div class="card-body table-responsive">
+                                <div class="row">
+                                  <div class="col-md-7 order">
+                                     
+                                 
+                                        <div class="card" *ngFor='let list of allOrderList'>
+                                          <div class="card-header card-header-icon card-header-warning">
+                                            <div class="card-icon">
+                                              <i class="material-icons">account_circle</i>
+                                            </div>
+                                            <h4 class="card-title"><strong>Order ID #{{list._id || '-'}}</strong> </h4>
+                                          </div>
+                                          <div class="row">
+                                          <div class="col-md-4 card-body container">
+                                              <ul>
+                                              <li><strong>Name: </strong> {{list._id || '-'}}</li>
+                                              <li><strong>Phone No: </strong>+91 {{list.user_phone || '-'}}</li>
+                                              </ul>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-12">
+                                              <button mat-raised-button class="btn btn-warning btn-sm ">Assign Order </button>
+                                              <button mat-raised-button class="btn btn-info btn-sm">Request for change </button>
+                                              </div>
+                                            </div>
+                                         
+                                          <div class="col">
+                                              <div class="example-button-row">
+                                                  <button (click)="openScrollableContent(orderDetail, list._id, list.restaurant_name, list.user_name,list.delivery_address, list.user_phone, list.note, list.sub_total)"mat-raised-button class="btn btn-success btn-sm">Order Details</button>
+                                                  <button mat-raised-button class="btn btn-danger btn-sm">Message</button>
+                                                </div>
+                                          </div>
+                                      </div>
+                                      </div>
+                                      
+                                  </div>
+                                 
+                                <div class="col-lg-5 col-md-5">
+                                    <div class="col-md-12">
+                                      <mat-form-field appearance="fill">
+                                          <mat-label>Choose a date</mat-label>
+                                          <input matInput [matDatepicker]="picker">
+                                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                          <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
+                                  </div>
+                                  <div class="container-fluid">
+                                      <div class="map-responsive">
+                                     <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                  </div>
+                                  </div>
+                                </div>
+                                  
+                              </div>
+                            </div>
+                          </div> -->
+                          <!-- take away -->
+                          <div class="tab-pane " id="deliveredOrders">
+                            <div class="card-body table-responsive">
+                                <div class="row">
+                                  <div class="col-md-7 order">
+                                      <div class="card" *ngFor='let list of allOrderList'>
+                                          <div class="card-header card-header-icon card-header-white">
+                                            <div class="card-icon">
+                                              <i class="material-icons">account_circle</i>
+                                            </div>
+                                            <h4 class="card-title"><strong>Order ID #{{list._id}}</strong> </h4>
+                                          </div>
+                                          <div class="row">
+                                          <div class="col-md-6 card-body">
+                                            <ul>
+                                              <li><strong>Name: </strong> {{list.user_name || '-'}}</li>
+                                              <li><strong>Phone No: </strong>+91 {{list.user_phone || '-'}}</li>
+                                            </ul>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-sm-12">
+                                          <button  (click)="openScrollableContent(orderDetail, list._id, list.restaurant_name, list.user_name,list.delivery_address, list.user_phone, list.note, list.sub_total)"
+                                          mat-raised-button class="btn btn-warning btn-sm">Order Details</button>
+                                          <button mat-raised-button class="btn btn-info btn-sm">Message</button>
+                                          </div>
+                                        </div>
+                                      <!-- <div class=" col ">
+                                        <div class="example-button-row">
+                                            
+                                    
+                        
+                                          </div>
+                                    </div> -->
+                                      <div class="col">
+                                          <div class="example-button-row">
+                                              <!-- <button mat-raised-button class="btn btn-success btn-sm" 
+                                              (click)="openScrollableContent(orderDetail, list._id, list.restaurant_name, list.user_name,list.delivery_address, list.user_phone, list.note, list.sub_total)">Order Order Details</button> -->
+                                              <!-- <button mat-raised-button class="btn btn-warning btn-sm">Order Details</button>
+                                              <button mat-raised-button class="btn btn-info btn-sm">Message</button> -->
+                                              <!-- <button mat-raised-button class="btn btn-danger btn-sm">Message</button> -->
+                                              
+                                            </div>
+                                      </div>
+                                      </div>
+                                      </div>
+                                  
+                                      
+                                  </div>
+                                  
+                                <div class="col-lg-5 col-md-5">
+                                    <div class="col-md-12">
+                                      <mat-form-field appearance="fill">
+                                          <mat-label>Choose a date</mat-label>
+                                          <input matInput [matDatepicker]="picker4">
+                                          <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                          <mat-datepicker #picker4></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                  <div class="container-fluid">
+                                      <div class="map-responsive">
+                                     <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                  </div>
+                                  </div>
+                                </div>
+                                  
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+</div>
+</div>
+
+<ng-template #orderDetail let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title">Order Detail</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ul class="give-space">
+    <li><strong>Order Id:</strong>{{orderId || '-' }}</li>
+    <li><strong>Restaurant Name:</strong>{{restaurantName || '-'}}</li>
+    <li><strong>Customer Name:</strong>{{userName || '-'}}</li>
+    <li><strong>Address:</strong>{{deliveryAddress || '-'}}</li>
+    <li><strong>Phone No:</strong>{{userPhone || '-'}}</li>
+    <li><strong>Order Date:</strong>{{orderId || '-'}}</li>
+    <li><strong>Note:</strong>{{note || '-'}}</li>
+    <li><strong>Total Amount:</strong>{{totalAmount || '-'}}</li>
+  </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

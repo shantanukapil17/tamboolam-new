@@ -1,0 +1,50 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Add New Question </h4>
+                     </div>
+                    <div class="card-body">
+                        <form [formGroup]="faqForm"> 
+                            <div class="row">
+                                <div class="col-sm-5 form-group" >
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Question</mat-label>
+                                        <input matInput  class='outline' formControlName="question">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-5 form-group" >
+
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Answer</mat-label>
+                                        <textarea matInput formControlName="answer"></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5 form-group">
+                                    <mat-form-field class="example-full-width"  appearance="outline">
+                                        <mat-label>FAQ Category</mat-label>
+                                        <mat-select formControlName='category'>
+                                          <mat-option *ngFor='let item of category' [value]="item.id">{{item.faq_cat}}</mat-option>
+                                          </mat-select>
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <button class="btn btn-light float-right" type="button" (click)='clearIt()'>Cancel</button>
+                            &nbsp; 
+                            <button class="btn btn-info float-right" type="submit" *ngIf=!editMode (click)='addIt()'>Add Question</button>
+                            <button class="btn btn-info float-right" type="submit" *ngIf=editMode (click)='saveIt()'>Save Question</button>
+                          
+                                
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

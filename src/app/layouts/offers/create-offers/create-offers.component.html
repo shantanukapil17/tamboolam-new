@@ -1,0 +1,117 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-success">
+                      <h4 class="card-title ">Offers </h4>
+                      <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]='offersForm'> 
+<!--                        
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                      <mat-label>Restaurant Name</mat-label> 
+                                       <input matInput class='outline' placeholder="Offer Name" type="text">
+                                      </mat-form-field>
+                                  </div>
+                                  
+                                  <div class="col-md-6">
+                                    <button class="btn btn-Dark float-right text-center" type="button" >Previous offers</button>
+                                    </div>
+                                  
+                              </div> -->
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    <label>Offer Title</label>
+                                      <mat-form-field class="example-full-width"  appearance="outline">
+                                        <input matInput placeholder="Offer Title" type="email" formControlName='offer_name'>
+                                      </mat-form-field>
+                                  </div>
+                                  
+                             
+                                  <div class="col-md-6">
+                                      <label>Offer Description</label>
+                                      <mat-form-field class="example-full-width"  appearance="outline">
+                                        <input matInput placeholder="Offer Description" type="text" formControlName='offer_desc'>
+                                      </mat-form-field>
+                                  </div>
+                                  
+                                  
+                              </div>
+                              <label><Strong>Validity</Strong></label>
+                              <div class="row">
+                                
+                                <div class="col-md-6">
+                                  
+                                <mat-form-field appearance="fill">
+                                  <mat-label>Valid From</mat-label>
+                                  <input matInput [matDatepicker]="picker3" formControlName='valid_from'>
+                                  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                  <mat-datepicker #picker3></mat-datepicker>
+                                </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <mat-form-field appearance="fill">
+                                  <mat-label>Valid Till</mat-label>
+                                  <input matInput [matDatepicker]="picker4" formControlName='valid_till'>
+                                  <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                  <mat-datepicker #picker4></mat-datepicker>
+                                </mat-form-field>
+                              </div>
+                            </div>
+ 
+                                
+                           
+                            <div class="row">
+                                
+                              <div class="col-md-4">
+                               <mat-form-field class="example-full-width"  appearance="outline">
+                                    <mat-label>Discount</mat-label>
+                                    <input matInput placeholder="Discount" type="number" formControlName='discount'>
+                                </mat-form-field>
+                              </div> 
+                              <div class="col-md-4">
+                               
+                                <mat-form-field class="example-full-width"  appearance="outline">
+                                    <mat-label>Discount Type</mat-label>
+                                    <mat-select formControlName='dtype'>
+                                      <mat-option value="percent">Percentage</mat-option>
+                                      <mat-option value="ruppees">Ruppees</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-4">
+                              <mat-form-field class="example-full-width"  appearance="outline">
+                                <mat-label>Minimum Purchase Value</mat-label>
+                                <input matInput placeholder="Rs. 300/-" type="text" formControlName='mprice'>
+                              </mat-form-field>
+                          </div>
+                            </div>
+                              
+                              
+
+                          <div class="row">
+                                
+                           
+                        </div>
+
+                      
+                             
+                        <button class="btn btn-light float-right" type="button" (click)='clearIt()'>Cancel</button>
+                        &nbsp; 
+                        <button class="btn btn-info float-right" type="submit" *ngIf=!editMode (click)='addIt()'>Add Offer</button>
+                        <button class="btn btn-info float-right" type="submit" *ngIf=editMode (click)='saveIt()'>Save Offer</button>
+                            
+                      </form>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>

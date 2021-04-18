@@ -1,0 +1,53 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-success">
+                      <h4 class="card-title ">Restaurant List
+                      <button mat-raised-button routerLink="/restaurant-addition" class="btn btn-white  text-success btn-md float-right">Add Restaurant</button>
+                      </h4>    
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>Sl.No</th>
+                                  <th>Res.Name</th>
+                                  <th>Email Address</th>
+                                  <th>Logo</th>
+                                  <th>Address</th>
+                                  <th>Contact</th>
+                                  <th>Rating</th>
+                                  <th>Action</th>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor='let listItem of restaurantList.response.result; let i=index;'>
+                                    <td>{{i+1}}</td>
+                                    <td>{{listItem.name || '-'}}</td>
+                                    <td>{{listItem.email || '-' }}</td>
+                                    <td><img [src]="listItem.logo" class="img-responsive" style="width: 2rem;"></td>
+                                    <!-- <td> -->
+                                        <td *ngIf='listItem.active_status==1' class="text-success">Active</td>
+                                        <td *ngIf='listItem.active_status==0' class="text-danger">Closed</td>
+                                    <!-- </td> -->
+                                    <td style="width: 10rem;">{{listItem.restaurant_address || '-'}}</td>
+                                    <td>{{listItem.contact || '-'}}</td>
+                                    <td>{{listItem.rating || '-'}}</td>
+                                    <td style="font-size: 1.2rem;">
+                                        <i class="far fa-edit" style="color:#2eca2a" (click)="edit(listItem._id)"></i> 
+                                        &nbsp;
+                                        <i class="fa fa-trash" style="color:#2eca2a" (click)="delete(listItem._id)"></i>
+                                    </td>
+                                </tr>
+                                  
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+         
+      </div>
+  </div>
+</div>

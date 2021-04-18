@@ -1,0 +1,355 @@
+ <!-- <div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">App New Item</h4>
+                    </div>
+                    <div class="card-body">
+                        <form  (ngSubmit)='addIt()' #f='ngForm'> 
+                            <div class="row">
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Item Name</label>
+                                    <mat-form-field class="example-full-width"  appearance="outline">
+                                       <input matInput placeholder="Item Name" type="text">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Item Price</label><br>
+                                    <mat-form-field class="nxt float-right"  appearance="outline">
+                                        <input matInput placeholder="Strike-Off Price(Optional)" type="text">
+                                   </mat-form-field>
+                                    <mat-form-field class="nxt"  appearance="outline">
+                                         <input matInput placeholder="Phone Number" type="text">
+                                    </mat-form-field>
+
+                                </div>
+                            </div>    
+                            <div class="row"> 
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Item Description</label>
+                                    <mat-form-field class="example-full-width"  appearance="outline">
+                                        <input matInput placeholder="Item Description" type="text">
+                                     </mat-form-field>
+                                </div>
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Add Ons List + </label> <br>
+                                    <mat-form-field class="nxt float-right"  appearance="outline">
+                                        <input matInput placeholder="Price Of Add-on" type="text">
+                                     </mat-form-field>
+                                     <mat-form-field class="nxt"  appearance="outline">
+                                        <input matInput placeholder="Item Name" type="text">
+                                     </mat-form-field>
+                                    
+                                     <mat-form-field class="nxt float-right"  appearance="outline">
+                                        <input matInput placeholder="Price Of Add-on" type="text">
+                                     </mat-form-field><mat-form-field class="nxt"  appearance="outline">
+                                        <input matInput placeholder="Item Name" type="text">
+                                     </mat-form-field>
+
+                                   
+
+                                </div>
+                                
+                            </div>
+                            <div class="row"> 
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Category</label>
+                                    <mat-form-field appearance="outline">
+                                        <mat-select>
+                                            <mat-option value="primary">Primary</mat-option>
+                                            <mat-option value="accent">Accent</mat-option>
+                                            <mat-option value="warn">Warn</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Add This Product to Subscription +</label>
+                                    <input type="checkbox">
+                                    <mat-form-field appearance="outline">
+                                        <mat-select>
+                                        <mat-option value="primary">Primary</mat-option>
+                                        <mat-option value="accent">Accent</mat-option>
+                                        <mat-option value="warn">Warn</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>    
+                                </div>
+                            </div>
+                            <div class="row"> 
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Cuisine</label>
+                                    <mat-form-field appearance="outline">
+                                        <mat-select>
+                                        <mat-option value="primary">Primary</mat-option>
+                                        <mat-option value="accent">Accent</mat-option>
+                                        <mat-option value="warn">Warn</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>    
+                                    <label for='name'>Product Order</label>
+                                    <mat-form-field appearance="outline">
+                                        <mat-select>
+                                        <mat-option value="primary">Primary</mat-option>
+                                        <mat-option value="accent">Accent</mat-option>
+                                        <mat-option value="warn">Warn</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>    
+                                    <label for='name'>Product Image</label>
+                                    <input  type="file" placeholder="Choose Image">
+                                    <div class='file'>Choose Image</div><br>
+                                    <label for='name'> Feature This Product</label>
+                                    <mat-form-field appearance="outline">
+                                        <mat-select>
+                                        <mat-option value="primary">Primary</mat-option>
+                                        <mat-option value="accent">Accent</mat-option>
+                                        <mat-option value="warn">Warn</mat-option>
+                                        </mat-select>
+                                    </mat-form-field> 
+                                    <input  type="file" placeholder="Choose Image">
+                                    <div class='file'>Choose Image</div><br>
+                                    
+                                </div>
+                                <div class="col-sm-5 form-group" >
+                                    <label for='name'>Show Nutrients Info Of This Item </label><input type="checkbox">
+                                    <br><br>
+                                    <h5>
+                                        <table>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Protein</td>
+                                                <td>[In gms]</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Sugars</td>
+                                                <td>[In gms]</td>
+                                            </tr> 
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Fiber</td>
+                                                <td>[In gms]</td>
+                                            </tr> 
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Fat</td>
+                                                <td>[In gms]</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Calories</td>
+                                                <td>[In Cal]</td>
+                                            </tr>
+                                           </table>
+                                    </h5>   
+
+                                    <label>Ingredients</label>
+                                    <input type="checkbox">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Ingredients" type="text">
+                                    </mat-form-field>                                               
+
+                                    <label for='name'>Add Ons List + </label>
+                                    <input type="checkbox">
+                                    <br>
+                                    <mat-form-field class="nxt float-right"  appearance="outline">
+                                        <input matInput placeholder="Price Of Add-on" type="text">
+                                     </mat-form-field>
+                                     <mat-form-field class="nxt"  appearance="outline">
+                                        <input matInput placeholder="Item Name" type="text">
+                                     </mat-form-field>
+                                    
+                                     <mat-form-field class="nxt float-right"  appearance="outline">
+                                        <input matInput placeholder="Price Of Add-on" type="text">
+                                     </mat-form-field><mat-form-field class="nxt"  appearance="outline">
+                                        <input matInput placeholder="Item Name" type="text">
+                                     </mat-form-field>
+
+                                    <label>Discount</label>
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Discount" type="text">
+                                    </mat-form-field> 
+
+                                    <label>Item Kind</label>
+                                    <mat-form-field appearance="outline">
+                                        <mat-select>
+                                        <mat-option value="primary">Primary</mat-option>
+                                        <mat-option value="accent">Accent</mat-option>
+                                        <mat-option value="warn">Warn</mat-option>
+                                        </mat-select>
+                                    </mat-form-field> 
+                                </div>
+                            </div>
+                            
+                          
+                            <button class="btn btn-primary" type="button" (click)='clearIt()'>Cancel</button>
+                            &nbsp; 
+                            <button class="btn btn-success" type="submit"  [disabled]="!f.valid">Add Banner</button>
+                                
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+    -->
+
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-success">
+                            <h4 class="card-title ">App New Item</h4>
+                            <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]='itemsForm'> 
+                                <div class="row">
+                                    <div class="col-sm-5 form-group" >
+                                        <label for='name'>Item Name</label>
+                                        <mat-form-field class="example-full-width"  appearance="outline" >
+                                           <input matInput type="text" formControlName='name' >
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-3 form-group" >
+                                        <label for='name'>Item Price</label><br>
+                                      <mat-form-field  appearance="outline">
+                                             <input matInput type="text" formControlName='price'>
+                                        </mat-form-field>
+                                    </div>   
+                                    <div class="col-sm-3 form-group" >
+                                        <label for='name'>Item Type</label><br>
+                                        <mat-form-field appearance="outline">
+                                          <mat-select formControlName='type'>
+                                            <mat-option value='veg'>Veg</mat-option>
+                                            <mat-option value='non_veg'>Non Veg</mat-option>
+                                          </mat-select>
+                                        </mat-form-field> 
+                                    </div>   
+                                    
+                                </div>    
+                                <div class="row"> 
+                                    <div class="col-sm-12 form-group" >
+                                        <label for='name'>Restaurant</label>
+                                         <mat-form-field appearance="outline">
+                                            <mat-select formControlName='restaurant'>
+                                                <mat-option *ngFor='let item of restaurantList' [value]='item._id'>{{item.name || 'No data'}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <!-- <div class="col-sm-5 form-group" >
+                                        <label for='name'>Add Ons List + </label> <br>
+                                        <mat-form-field class="nxt float-right"  appearance="outline">
+                                            <input matInput placeholder="Price Of Add-on" type="text">
+                                         </mat-form-field>
+                                         <mat-form-field class="nxt"  appearance="outline">
+                                            <input matInput placeholder="Item Name" type="text">
+                                         </mat-form-field>
+                                        
+                                         <mat-form-field class="nxt float-right"  appearance="outline">
+                                            <input matInput placeholder="Price Of Add-on" type="text">
+                                         </mat-form-field><mat-form-field class="nxt"  appearance="outline">
+                                            <input matInput placeholder="Item Name" type="text">
+                                         </mat-form-field>
+                                    </div> -->
+                                    
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-sm-5 form-group" >
+                                        <label for='name'>Category</label>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select formControlName='category'>
+                                                <mat-option *ngFor='let item of categoryList' [value]='item.category_slug'>{{item.category_value || 'No data'}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-5 form-group" >
+                                        <!-- <label for='name'>Add This Product to Subscription +</label>
+                                        <input type="checkbox">
+                                        <mat-form-field appearance="outline">
+                                            <mat-select>
+                                            <mat-option value="primary">Primary</mat-option>
+                                            <mat-option value="accent">Accent</mat-option>
+                                            <mat-option value="warn">Warn</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>     -->
+                                        <label for='name'>Cuisine</label>
+                                        <mat-form-field appearance="outline" >
+                                            <mat-select formControlName='cuisine'>
+                                                <mat-option *ngFor='let item of cuisineList' [value]='item.cuisine_slug'>{{item.cuisine_value || 'No data'}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>    
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-sm-5 form-group" >
+                                        
+                                        <!-- <label for='name'>Product Order</label>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select>
+                                            <mat-option value="primary">Primary</mat-option>
+                                            <mat-option value="accent">Accent</mat-option>
+                                            <mat-option value="warn">Warn</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>     -->
+                                        <label for='name'> Feature This Product</label>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select formControlName='feature'>
+                                            <mat-option value="Yes">Yes</mat-option>
+                                            <mat-option value="No">No</mat-option>
+                                            </mat-select>
+                                        </mat-form-field> 
+                                       
+                                    </div>
+                                    <div class="col-sm-5 form-group" >
+                                       
+    
+                                        <!-- <label>Ingredients</label>
+                                        <input type="checkbox">
+                                        <mat-form-field appearance="outline">
+                                            <input matInput placeholder="Ingredients" type="text">
+                                        </mat-form-field>                                                -->
+    
+                                       
+    
+                                        <!-- <label>Item Kind</label>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select>
+                                            <mat-option value="primary">Primary</mat-option>
+                                            <mat-option value="accent">Accent</mat-option>
+                                            <mat-option value="warn">Warn</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>  -->
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf=changeLogo>
+                                    <mat-label class="form-label" for="customFile" (click)='print()'>item Image:</mat-label>
+                                      <input type="file" (change)="selectImage($event)" formControlName='item_image'>	
+                                  </div>
+                                  <div style="width: 20rem ;margin:auto;" *ngIf=!changeLogo>
+                                    <div class="card" style="width: 18rem;">
+                                      <img class="card-img-top" [src]='image'>
+                                      <div class="card-body" style="text-align: center;">
+                                        <h5 class="card-title">
+                                          Item Image
+                                        </h5>
+                                        <mat-icon (click)='changeLogo=!changeLogo'>delete_outline</mat-icon>
+                                        </div>
+                                    </div>
+                                  </div>
+                                <button class="btn btn-light float-right" type="button" (click)='clearIt()'>Cancel</button>
+                                &nbsp; 
+                                <button class="btn btn-info float-right" type="submit" *ngIf=!editMode (click)='addIt()'>Add Category</button>
+                                <button class="btn btn-info float-right" type="submit" *ngIf=editMode (click)='saveIt()'>Save Category</button>
+                                    
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+      </div>
+      
