@@ -201,12 +201,13 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-success">
-                            <h4 class="card-title ">App New Item</h4>
+                            <h4 class="card-title ">Add New Item</h4>
                             <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                         </div>
                         <div class="card-body">
                             <form [formGroup]='itemsForm'> 
-                                <div class="row">
+                                <!-- <div class="top-buffer"> -->
+                                <div class="row" [ngStyle]="{height:'75px'}">
                                     <div class="col-sm-5 form-group" >
                                         <label for='name'>Item Name</label>
                                         <mat-form-field class="example-full-width"  appearance="outline" >
@@ -219,7 +220,7 @@
                                              <input matInput type="text" formControlName='price'>
                                         </mat-form-field>
                                     </div>   
-                                    <div class="col-sm-3 form-group" >
+                                    <div class="col-sm-4 form-group" >
                                         <label for='name'>Item Type</label><br>
                                         <mat-form-field appearance="outline">
                                           <mat-select formControlName='type'>
@@ -230,7 +231,7 @@
                                     </div>   
                                     
                                 </div>    
-                                <div class="row"> 
+                                <div class="row" [ngStyle]="{height:'75px'}"> 
                                     <div class="col-sm-12 form-group" >
                                         <label for='name'>Restaurant</label>
                                          <mat-form-field appearance="outline">
@@ -256,8 +257,9 @@
                                     </div> -->
                                     
                                 </div>
-                                <div class="row"> 
-                                    <div class="col-sm-5 form-group" >
+                            <!-- </div> -->
+                                <div class="row" [ngStyle]="{height:'75px'}"> 
+                                    <div class="col-sm-6 form-group" >
                                         <label for='name'>Category</label>
                                         <mat-form-field appearance="outline">
                                             <mat-select formControlName='category'>
@@ -265,7 +267,7 @@
                                             </mat-select>
                                         </mat-form-field>
                                     </div>
-                                    <div class="col-sm-5 form-group" >
+                                    <div class="col-sm-6 form-group" >
                                         <!-- <label for='name'>Add This Product to Subscription +</label>
                                         <input type="checkbox">
                                         <mat-form-field appearance="outline">
@@ -283,17 +285,8 @@
                                         </mat-form-field>    
                                     </div>
                                 </div>
-                                <div class="row"> 
+                                <div class="row" [ngStyle]="{height:'75px'}"> 
                                     <div class="col-sm-5 form-group" >
-                                        
-                                        <!-- <label for='name'>Product Order</label>
-                                        <mat-form-field appearance="outline">
-                                            <mat-select>
-                                            <mat-option value="primary">Primary</mat-option>
-                                            <mat-option value="accent">Accent</mat-option>
-                                            <mat-option value="warn">Warn</mat-option>
-                                            </mat-select>
-                                        </mat-form-field>     -->
                                         <label for='name'> Feature This Product</label>
                                         <mat-form-field appearance="outline">
                                             <mat-select formControlName='feature'>
@@ -328,7 +321,7 @@
                                     <mat-label class="form-label" for="customFile" (click)='print()'>item Image:</mat-label>
                                       <input type="file" (change)="selectImage($event)" formControlName='item_image'>	
                                   </div>
-                                  <div style="width: 20rem ;margin:auto;" *ngIf=!changeLogo>
+                                  <div style="width: 20rem ;margin:auto; height:750px;" *ngIf=!changeLogo>
                                     <div class="card" style="width: 18rem;">
                                       <img class="card-img-top" [src]='image'>
                                       <div class="card-body" style="text-align: center;">
